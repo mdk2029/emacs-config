@@ -23,14 +23,19 @@
 (eval-after-load 'gnutls
   '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(defvar myPackages
+  '(use-package
+     bind-key
+    ))
+
+(mapc #'(lambda (package)
+    (unless (package-installed-p package)
+      (package-install package)))
+      myPackages)
+
 (eval-when-compile
   (require 'use-package))
-(require 'bind-key)
-(setq use-package-always-ensure t)
 
-(eval-when-compile (require 'use-package))
+(setq use-package-always-ensure t)
 
 (provide 'init-elpa)

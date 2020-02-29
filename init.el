@@ -7,10 +7,11 @@
 (require 'init-ui)
 (require 'init-editing)
 (require 'init-navigation)
-(require 'init-miscellaneous)
 (require 'init-programming-common)
+(require 'init-cpp)
 (require 'init-python)
 (require 'init-rust)
+(require 'init-go)
 
 ;;(require-package 'better-defaults)
 
