@@ -1,5 +1,11 @@
 ;; .emacs.d/init.el
 
+(setq user-full-name "MK"
+      user-mail-address "mdk.2029@gmail.com")
+
+(setq gc-cons-threshold 50000000)
+(setq large-file-warning-threshold 100000000)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-elpa)
@@ -14,6 +20,9 @@
 (require 'init-go)
 
 ;;(require-package 'better-defaults)
+
+(require 'server)
+(if (not (server-running-p)) (server-start))
 
 (provide 'init)
 

@@ -23,6 +23,7 @@
   ;;(setq enable-recursive-minibuffers t)
   ;;(setq ivy-wrap t)
   ;;(global-set-key (kbd "C-c C-r") 'ivy-resume)
+  :delight
   )
 
 ;; (use-package swiper
@@ -65,7 +66,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package projectile
   :config
-  (projectile-global-mode))
+  (projectile-global-mode)
+  :delight '(:eval (concat " " (projectile-project-name)))
+  )
 
 (use-package counsel-projectile
   :after (projectile ivy)
@@ -103,6 +106,7 @@
     (declare-function autopair-global-mode "autopair.el"))
   :config
   (autopair-global-mode t)
+  :delight
   )
 
 

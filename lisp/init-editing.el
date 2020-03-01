@@ -20,18 +20,18 @@
 (setq-default case-fold-search t ;case insensitive searches by default
               search-highlight t) ;hilit matches when searching
 
-;; Disable the toolbar at the top since it's useless
-(if (functionp 'tool-bar-mode) (tool-bar-mode -1))
+;; ;; Disable the toolbar at the top since it's useless
+;; (if (functionp 'tool-bar-mode) (tool-bar-mode -1))
 
 ;; We don't want to type yes and no all the time so, do y and n
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; Disable the horrid auto-save
 (setq auto-save-default nil)
 
-;; Disable the menu bar since we don't use it, especially not in the
-;; terminal
-(when (and (not (eq system-type 'darwin)) (fboundp 'menu-bar-mode))
-  (menu-bar-mode -1))
+;; ;; Disable the menu bar since we don't use it, especially not in the
+;; ;; terminal
+;; (when (and (not (eq system-type 'darwin)) (fboundp 'menu-bar-mode))
+;;   (menu-bar-mode -1))
 
 ;; Don't ring the bell
 (setq ring-bell-function 'ignore)
@@ -43,11 +43,11 @@
 
 (setq-default indent-tabs-mode nil)
 
-(global-linum-mode t)
-;; Show column numbers by default
-(setq column-number-mode t)
-;; Highlight current line
-(global-hl-line-mode 1)
+;; (global-linum-mode t)
+;; ;; Show column numbers by default
+;; (setq column-number-mode t)
+;; ;; Highlight current line
+;; (global-hl-line-mode 1)
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
@@ -85,6 +85,8 @@
 
 (use-package async)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package whitespace
   :ensure t
   :init
@@ -95,6 +97,7 @@
   (setq whitespace-style '(tabs tab-mark))
   ;; Turn on whitespace mode globally
   (global-whitespace-mode t)
+  :delight global-whitespace-mode
   )
 
 (provide 'init-editing)

@@ -6,20 +6,29 @@
   (setq company-minimum-prefix-length 1)
   (setq company-idle-delay 0.3)
   (global-set-key (kbd "C-<ret>") 'company-complete))
-(require 'company)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package flycheck
-  :hook (prog-mode . flycheck-mode))
-(require 'flycheck)
-
+  :hook (prog-mode . flycheck-mode)
+  :delight
+  :config
+  (setq flycheck-gcc-language-standard "c++17")
+  (setq flycheck-clang-language-standard "c++17")
+  )
+  
 (use-package popup)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package which-key
-  :config
-  (which-key-mode))
+  :config (which-key-mode)
+  :delight
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package magit
+  :bind (("C-M-g" . magit-status)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
