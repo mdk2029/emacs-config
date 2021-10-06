@@ -18,11 +18,13 @@
  ((string-equal system-type "gnu/linux") ; linux
   (progn
     (message "Linux")
-    (use-package solarized-theme
-      :ensure t
-      :config
-      (load-theme 'solarized-dark t))
-    )))
+    ;; (use-package solarized-theme
+    ;;   :ensure t
+    ;;   :config
+    ;;   (load-theme 'solarized-dark t))
+    (load-theme 'manoj-dark t)
+    )
+  ))
 
 
 (menu-bar-mode -1)

@@ -2,7 +2,7 @@
 
 (use-package saveplace)
 (use-package rainbow-delimiters)
-;;(require-package 'flycheck)
+(use-package deadgrep)
 
 (setq create-lockfiles nil)
 (setq inhibit-startup-message t) ;; hide the startup message
@@ -10,6 +10,8 @@
 (setq-default indicate-empty-lines t)
 (when (not indicate-empty-lines)
   (toggle-indicate-empty-lines))
+(setq-default fill-column 80)
+
 
 (show-paren-mode t)
 ;; Overwrite region selected
@@ -51,6 +53,7 @@
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
+(global-set-key (kbd "M-s") 'deadgrep)
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
@@ -98,6 +101,17 @@
   ;; Turn on whitespace mode globally
   (global-whitespace-mode t)
   :delight global-whitespace-mode
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; smartparens
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Automatically at closing brace, bracket and quote
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config)
+  :hook (prog-mode . smartparens-mode) 
   )
 
 (provide 'init-editing)
